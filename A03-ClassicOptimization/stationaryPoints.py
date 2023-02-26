@@ -19,7 +19,9 @@ minior = np.min(roots) - 0.5
 x = np.linspace(minior, major, 100)
 y = np.polyval(poly, x)
 
-
+plt.title('Funcion: x³-4x²+x+6')
 plt.plot(x, y, 'r')
 plt.plot(roots, values, '*g')
+plt.annotate("Minimo", (roots[0], values[0]))
+plt.annotate("Maximo", (roots[1], values[1]))
 plt.show()
