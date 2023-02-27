@@ -10,6 +10,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
 
+b = 10
+f = lambda x, y: (x-1)**2 + b*(y-x**2)**2;
+
 fig = plt.figure()
 ax = fig.gca(projection = '3d')
 
@@ -17,3 +20,5 @@ X = np.arange(-2.048, 2.048, 0.1)
 Y = np.arange(-2.048, 2.048, 0.1)
 
 X, Y = np.meshgrid(X, Y)
+
+Z = f(X, Y)
