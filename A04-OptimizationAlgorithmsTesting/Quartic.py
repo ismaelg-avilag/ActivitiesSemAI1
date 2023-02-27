@@ -19,3 +19,7 @@ Y = np.arange(-1.28, 1.28, 0.1)
 X, Y = np.meshgrid(X, Y)
 
 Z = X**4 + Y**4
+
+surf = ax.plot_surface(X, Y, Z, cmap = cm.coolwarm, linewidth = 1)
+fig.colorbar(surf)
+plt.show()
