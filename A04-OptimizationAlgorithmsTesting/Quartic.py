@@ -17,3 +17,5 @@ X = np.arange(-1.28, 1.28, 0.1)
 Y = np.arange(-1.28, 1.28, 0.1)
 
 X, Y = np.meshgrid(X, Y)
+
+Z = X**4 + Y**4
