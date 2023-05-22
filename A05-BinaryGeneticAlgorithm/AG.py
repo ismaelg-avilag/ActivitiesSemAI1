@@ -11,21 +11,21 @@ import numpy as np
 
 class Individuo:
     def __init__(self, alelos, longitud_gen, cromosoma):
-        self.alelos = alelos
-        self.longitud_gen = longitud_gen
-        self.cromosoma = cromosoma
-        self.fitness = 0
+        self._alelos = alelos
+        self._longitud_gen = longitud_gen
+        self._cromosoma = cromosoma
+        self._fitness = 0
 
 
 class AG:
     def __init__(self, cantidad_individuos, alelos, tamano_gen, generaciones, p, problema):
-        self.cantidad_individuos = cantidad_individuos
-        self.alelos = alelos
-        self.tamano_gen = tamano_gen
-        self.generaciones = generaciones
-        self.p = p
-        self.problema = problema
-        self.individuos = np.array([])
+        self._cantidad_individuos = cantidad_individuos
+        self._alelos = alelos
+        self._tamano_gen = tamano_gen
+        self._generaciones = generaciones
+        self._p = p
+        self._problema = problema
+        self._individuos = np.array([])
         
     def crearIndividuos(self):
         for i in range(self._cantidad_individuos):
@@ -89,7 +89,7 @@ class AG:
                 while padre1 == padre2:
                     padre2 = self.ruleta()
                 
-                h1, h2 = self.cruza(self._indiividuos[padre1], self._indiividuos[padre2])
+                h1, h2 = self.cruza(self._individuos[padre1], self._individuos[padre2])
                 hijos = np.append(hijos, [h1])
                 hijos = np.append(hijos, [h2])
             
