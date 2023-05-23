@@ -26,19 +26,19 @@ class AG:
         self._p = p
         self._problema = problema
         self._individuos = np.array([])
-        
+
     def crearIndividuos(self):
         for i in range(self._cantidad_individuos):
             cromosoma = np.random.randint(2, size = self._alelos)
             individuo = Individuo(self._alelos, self._tamano_gen, cromosoma)
             self._individuos = np.append(self._individuos, [individuo])
-    
+
     def evaluaIndividuos(self):
         for i in self._individuos:
             i._fitness = self._problema.f(i._cromosoma)
             if i._fitness > self._mejor_historico._fitness:
                 self._mejor_historico = copy.deepcopy(i)
-    
+
     def ruleta(self):
         f_sum = np.sum([i._fitness for i in self._individuos])
         
@@ -51,7 +51,6 @@ class AG:
             while F < r:
                 k += 1
                 F += self._individuos[k]._fitness
-            
             return k
 
     def cruza(self, i1, i2):
@@ -65,13 +64,13 @@ class AG:
             h1._cromosoma[i], h2._cromosoma[i] = h2._cromosoma[i], h1._cromosoma[i],
         
         return h1, h2
-    
+
     def mutacion(self, hijos):
         for h in hijos:
             for bit in range(len(h._cromosoma)):
                 if np.random.rand() < self._p:
                     h._cromosoma[bit] = int(not h._cromosoma[bit])
-    
+
     def run(self):
         self.crearIndividuos()
         self._mejor_historico = self._individuos
