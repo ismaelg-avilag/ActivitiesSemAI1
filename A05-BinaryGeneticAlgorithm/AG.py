@@ -61,7 +61,7 @@ class AG:
         punto_cruza = np.random.randint(s) + 1
         
         for i in range(punto_cruza, self._alelos):
-            h1._cromosoma[i], h2._cromosoma[i] = h2._cromosoma[i], h1._cromosoma[i],
+            h1._cromosoma[i], h2._cromosoma[i] = h2._cromosoma[i], h1._cromosoma[i]
         
         return h1, h2
 
