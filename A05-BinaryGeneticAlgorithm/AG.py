@@ -73,7 +73,7 @@ class AG:
 
     def run(self):
         self.crearIndividuos()
-        self._mejor_historico = self._individuos
+        self._mejor_historico = self._individuos[0]
         
         generacion = 0
         
@@ -97,4 +97,4 @@ class AG:
             self._individuos[np.random.randint(len(self._individuos))] = copy.deepcopy(self._mejor_historico)
             
             print("Generacion: ", generacion, " Mejor Histórico: ", self._mejor_historico._cromosoma, self._mejor_historico._fitness)
-            generacion += h1
+            generacion += 1
