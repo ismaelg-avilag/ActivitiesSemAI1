@@ -61,7 +61,7 @@ class AG:
         punto_cruza = np.random.randint(s) + 1
         
         for i in range(punto_cruza, self._alelos):
-            h1._cromosoma[i], h2._cromosoma[i] = h2._cromosoma[i], h1._cromosoma[i],
+            h1._cromosoma[i], h2._cromosoma[i] = h2._cromosoma[i], h1._cromosoma[i]
         
         return h1, h2
 
@@ -73,7 +73,7 @@ class AG:
 
     def run(self):
         self.crearIndividuos()
-        self._mejor_historico = self._individuos
+        self._mejor_historico = self._individuos[0]
         
         generacion = 0
         
@@ -97,4 +97,4 @@ class AG:
             self._individuos[np.random.randint(len(self._individuos))] = copy.deepcopy(self._mejor_historico)
             
             print("Generacion: ", generacion, " Mejor Histórico: ", self._mejor_historico._cromosoma, self._mejor_historico._fitness)
-            generacion += h1
+            generacion += 1
