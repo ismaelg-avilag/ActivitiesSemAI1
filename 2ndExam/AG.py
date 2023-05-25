@@ -96,5 +96,14 @@ class AG:
             self._individuos = np.copy(hijos)
             self._individuos[np.random.randint(len(self._individuos))] = copy.deepcopy(self._mejor_historico)
             
-            print("Generacion: ", generacion, " Mejor Histórico: ", self._mejor_historico._cromosoma, self._mejor_historico._fitness)
+            print("Generacion: ", generacion, " Elementos: ", self.getValues(), self._mejor_historico._fitness)
             generacion += 1
+
+
+    def getValues(self):
+        objects = []
+        for i in range(len(self._mejor_historico._cromosoma)):
+            if self._mejor_historico._cromosoma[i]:
+                objects.append(self._problema._valores[i])
+        
+        return objects
