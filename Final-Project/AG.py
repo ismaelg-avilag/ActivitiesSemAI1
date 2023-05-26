@@ -96,5 +96,32 @@ class AG:
             self._individuos = np.copy(hijos)
             self._individuos[np.random.randint(len(self._individuos))] = copy.deepcopy(self._mejor_historico)
             
-            print("Generacion: ", generacion, " Mejor Histórico: ", self._mejor_historico._cromosoma, self._mejor_historico._fitness)
+            print("Gen: ", generacion, ". La cantidad máxima de créditos que puedes obtener con ", self._problema._horas_max_semana, " horas de clase a la semana son: ", self.get_cantidad_max_creditos(), " Horas por clase: ", self.get_horas_por_clases(), " Créditos por clase: ", self.get_creditos_por_clases())
             generacion += 1
+    
+    def get_cantidad_max_creditos(self):
+        creditos = 0
+        
+        for i in range(len(self._mejor_historico._cromosoma)):
+            if self._mejor_historico._cromosoma[i]:
+                creditos += self._problema._creditos[i]
+        
+        return creditos
+    
+    def get_horas_por_clases(self):
+        horas = []
+        
+        for i in range(len(self._mejor_historico._cromosoma)):
+            if self._mejor_historico._cromosoma[i]:
+                horas.append(self._problema._horas_clase_a_la_semana[i])
+        
+        return horas
+    
+    def get_creditos_por_clases(self):
+        creditos = []
+        
+        for i in range(len(self._mejor_historico._cromosoma)):
+            if self._mejor_historico._cromosoma[i]:
+                creditos.append(self._problema._creditos[i])
+        
+        return creditos
