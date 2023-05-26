@@ -2,7 +2,7 @@
 Proyecto Final
 Seminario de Inteligencia Artificial 1
 
-Ismael Guadalupe Avila Guerrero
+Ismael Guadalupe Avila Guerrero - 215638591
 """
 
 import copy
